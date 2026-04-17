@@ -13,7 +13,7 @@ from fnos import (
     NotConnectedError,
 )
 
-from .const import DOMAIN
+from .const import DOMAIN, DEFAULT_SCAN_INTERVAL
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class FnosCoordinator(DataUpdateCoordinator):
             _LOGGER,
             name="fnOS",
             config_entry=config_entry,
-            update_interval=timedelta(seconds=30),
+            update_interval=timedelta(seconds=DEFAULT_SCAN_INTERVAL),
             always_update=True
         )
         self.api = api
