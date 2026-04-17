@@ -13,7 +13,13 @@ from fnos import (
     NotConnectedError,
 )
 
-from .const import DOMAIN, DEFAULT_SCAN_INTERVAL, DEFAULT_DISK_SCAN_INTERVAL
+from .const import (
+    DOMAIN,
+    DEFAULT_SCAN_INTERVAL,
+    DEFAULT_DISK_SCAN_INTERVAL,
+    CONF_SCAN_INTERVAL,
+    CONF_DISK_SCAN_INTERVAL,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -23,12 +29,15 @@ class FnosSystemCoordinator(DataUpdateCoordinator):
 
     def __init__(self, hass, config_entry, api):
         """Initialize system coordinator."""
+        interval = config_entry.options.get(
+            CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL
+        )
         super().__init__(
             hass,
             _LOGGER,
             name="fnOS System",
             config_entry=config_entry,
-            update_interval=timedelta(seconds=DEFAULT_SCAN_INTERVAL),
+            update_interval=timedelta(seconds=interval),
             always_update=True
         )
         self.api = api
@@ -128,12 +137,15 @@ class FnosDiskCoordinator(DataUpdateCoordinator):
 
     def __init__(self, hass, config_entry, api):
         """Initialize disk coordinator."""
+        interval = config_entry.options.get(
+            CONF_DISK_SCAN_INTERVAL, DEFAULT_DISK_SCAN_INTERVAL
+        )
         super().__init__(
             hass,
             _LOGGER,
             name="fnOS Disk",
             config_entry=config_entry,
-            update_interval=timedelta(seconds=DEFAULT_DISK_SCAN_INTERVAL),
+            update_interval=timedelta(seconds=interval),
             always_update=True
         )
         self.api = api
