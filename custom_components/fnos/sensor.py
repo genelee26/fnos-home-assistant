@@ -418,8 +418,8 @@ class FnosVolumeSensorEntity(CoordinatorEntity[FnosDiskCoordinator], SensorEntit
         super().__init__(coordinator)
         self.volume_name = volume.get("name")
         volume_uuid = volume.get("uuid")
-        trim_version = self.coordinator.host_name_data.get(“trimVersion”)
-        host_name = self.coordinator.host_name_data.get(“hostName”)
+        trim_version = self.coordinator.host_name_data.get("trimVersion")
+        host_name = self.coordinator.host_name_data.get("hostName")
 
         self.entity_description = description
         self._attr_unique_id = (
@@ -476,8 +476,8 @@ class FnosDiskSensorEntity(CoordinatorEntity[FnosDiskCoordinator], SensorEntity)
         disk_sn = disk.get("serialNumber")
         disk_model = disk.get("modelName")
         disk_vendor = disk.get("vendor")
-        trim_version = self.coordinator.host_name_data.get(“trimVersion”)
-        host_name = self.coordinator.host_name_data.get(“hostName”)
+        trim_version = self.coordinator.host_name_data.get("trimVersion")
+        host_name = self.coordinator.host_name_data.get("hostName")
 
         self.entity_description = description
         self._attr_unique_id = (
@@ -562,8 +562,8 @@ class FnosNetworkIfsSensorEntity(
         )
 
         self.ifs_name = ifs.get("name")
-        trim_version = self.coordinator.host_name_data.get(“trimVersion”)
-        host_name = self.coordinator.host_name_data.get(“hostName”)
+        trim_version = self.coordinator.host_name_data.get("trimVersion")
+        host_name = self.coordinator.host_name_data.get("hostName")
 
         self.entity_description = description
         self._attr_unique_id = (

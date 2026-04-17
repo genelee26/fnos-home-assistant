@@ -150,8 +150,8 @@ class FnosDiskBinarySensorEntity(
         disk_sn = disk.get("serialNumber")
         disk_model = disk.get("modelName")
         disk_vendor = disk.get("vendor")
-        trim_version = self.coordinator.host_name_data.get(“trimVersion”)
-        host_name = self.coordinator.host_name_data.get(“hostName”)
+        trim_version = self.coordinator.host_name_data.get("trimVersion")
+        host_name = self.coordinator.host_name_data.get("hostName")
 
         self.entity_description = description
         self._attr_unique_id = (
